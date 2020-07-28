@@ -5,6 +5,8 @@ import com.example.demo.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class EmployeeController {
 
@@ -19,5 +21,15 @@ public class EmployeeController {
     @GetMapping("/employees/{employeeId}")
     public Employee findEmployeeById(@PathVariable int employeeId) {
         return employeeService.findEmployeeById(employeeId);
+    }
+
+    @GetMapping("/employees")
+    public List<Employee> findAllEmployees() {
+        return employeeService.findAllEmployees();
+    }
+
+    @DeleteMapping("/employees/{employeeId}")
+    public void deleteEmployeeById(@PathVariable int employeeId){
+        employeeService.deleteEmployeeById(employeeId);
     }
 }
