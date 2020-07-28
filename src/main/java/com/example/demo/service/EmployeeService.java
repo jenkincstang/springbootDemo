@@ -22,6 +22,18 @@ public class EmployeeService {
         return null;
     }
 
+    public Employee updateEmployee(Employee employee) {
+        for (Employee emp : employees) {
+            if (emp.getId() == employee.getId()){
+                emp.setAge(employee.getAge());
+                emp.setGender(employee.getGender());
+                emp.setName(employee.getName());
+                return emp;
+            }
+        }
+        return null;
+    }
+
     public List<Employee> findAllEmployees() {
         return employees;
     }
