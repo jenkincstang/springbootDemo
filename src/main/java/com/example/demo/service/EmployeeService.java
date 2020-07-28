@@ -10,15 +10,14 @@ import java.util.List;
 public class EmployeeService {
     private List<Employee> employees = new ArrayList<>();
 
-    public void addEmployee(Employee employee){
+    public void addEmployee(Employee employee) {
         employees.add(employee);
     }
 
-    public List<Employee> getEmployees() {
-        return employees;
-    }
-
-    public void setEmployees(List<Employee> employees) {
-        this.employees = employees;
+    public Employee findEmployeeById(int employeeId) {
+        for (Employee employee : employees) {
+            if (employee.getId() == employeeId) return employee;
+        }
+        return null;
     }
 }
